@@ -11,7 +11,7 @@ env:
 script:
   - docker build -t "$IMAGE" -f "$IMAGE/Dockerfile"
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push "qutebrowser/travis:$IMAGE"
+  - docker push "$IMAGE" "qutebrowser/travis:$IMAGE"
 
 notifications:
   irc:
