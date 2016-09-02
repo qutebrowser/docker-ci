@@ -1,0 +1,25 @@
+sudo: required
+services: docker
+language: generic
+
+env:
+  matrix:
+    - IMAGE=archlinux
+    - IMAGE=debian-jessie
+    - IMAGE=ubuntu-xenial
+
+script:
+  - docker build -t "$IMAGE" -f "$IMAGE/Dockerfile"
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push "qutebrowser/travis:$IMAGE"
+
+notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#qutebrowser-dev"
+    on_success: always
+    on_failure: always
+    skip_join: true
+    template:
+      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
+      - "%{compare_url} - %{build_url}"
