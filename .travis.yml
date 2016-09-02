@@ -9,7 +9,7 @@ env:
     - IMAGE=ubuntu-xenial
 
 script:
-  - docker build -t "qutebrowser/travis:$IMAGE" -f "$IMAGE/Dockerfile"
+  - docker build -t "qutebrowser/travis:$IMAGE" "$IMAGE"
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push "qutebrowser/travis:$IMAGE"
 
