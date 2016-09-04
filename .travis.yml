@@ -9,9 +9,9 @@ env:
     - IMAGE=ubuntu-xenial
 
 script:
-  - docker build -t "qutebrowser/travis:$IMAGE" "$IMAGE"
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push "qutebrowser/travis:$IMAGE"
+  - docker build -t "qutebrowser/travis:$IMAGE" "$IMAGE"PULL
+  - '[[ $TRAVIS_PULL_REQUEST == false ]] && docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"'
+  - '[[ $TRAVIS_PULL_REQUEST == false ]] && docker push "qutebrowser/travis:$IMAGE"'
 
 notifications:
   irc:
