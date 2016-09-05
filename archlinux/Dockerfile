@@ -18,7 +18,6 @@ RUN pacman -Suyy --noconfirm \
     qt5-webchannel-debug \
     qt5-declarative-debug \
     qt5-webkit-debug \
-    qt5-webengine-debug \
     python-pyqt5 \
     xorg-xinit \
     xorg-server-xvfb
