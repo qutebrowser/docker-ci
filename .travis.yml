@@ -9,7 +9,7 @@ env:
     - IMAGE=ubuntu-xenial
 
 script:
-  - travis_wait travis_retry docker build -t "qutebrowser/travis:$IMAGE" "$IMAGE"
+  - travis_retry docker build -t "qutebrowser/travis:$IMAGE" "$IMAGE"
   - '[[ $TRAVIS_PULL_REQUEST == false ]] && docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"'
   - '[[ $TRAVIS_PULL_REQUEST == false ]] && docker push "qutebrowser/travis:$IMAGE"'
 
