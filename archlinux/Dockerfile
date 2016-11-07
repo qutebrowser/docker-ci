@@ -29,4 +29,4 @@ ENV LANG=en_US.UTF-8
 CMD git clone /outside qutebrowser.git && \
     cd qutebrowser.git && \
     tox -e py35 || \
-    scripts/dev/get_coredumpctl_traces.py
+    python3 scripts/dev/get_coredumpctl_traces.py
