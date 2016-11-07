@@ -21,7 +21,7 @@ RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && locale-gen
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 
-CMD echo "|/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %e" > /proc/sys/kernel/core_pattern \
+CMD echo "|/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %e" > /proc/sys/kernel/core_pattern && \
     git clone /outside qutebrowser.git && \
     cd qutebrowser.git && \
     tox -e py35 || \
