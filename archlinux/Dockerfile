@@ -14,7 +14,8 @@ RUN pacman -Suyy --noconfirm \
     qt5-webengine \
     python-pyqt5 \
     xorg-xinit \
-    xorg-server-xvfb
+    xorg-server-xvfb \
+    gdb
 
 RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && locale-gen
 
@@ -27,4 +28,5 @@ ENV LANG=en_US.UTF-8
 
 CMD git clone /outside qutebrowser.git && \
     cd qutebrowser.git && \
-    tox -e py35
+    tox -e py35 || \
+    scripts/dev/get_coredumpctl_traces.py
