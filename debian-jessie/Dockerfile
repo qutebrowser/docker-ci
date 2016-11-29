@@ -9,6 +9,7 @@ RUN apt-get -y update && \
             python3-pyqt5 \
             python3-pyqt5.qtquick \
             python3-pyqt5.qtwebkit \
+            python3-pyqt5.qtsql \
             python-tox \
             python3-sip \
             xvfb \
