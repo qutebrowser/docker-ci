@@ -27,4 +27,4 @@ ENV LANG=en_US.UTF-8
 
 CMD git clone /outside qutebrowser.git && \
     cd qutebrowser.git && \
-    tox -e py35
+    tox -e py36
