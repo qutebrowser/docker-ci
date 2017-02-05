@@ -5,6 +5,7 @@ language: generic
 env:
   matrix:
     - IMAGE=archlinux
+    - IMAGE=archlinux-ng
     - IMAGE=debian-jessie
     - IMAGE=ubuntu-xenial
 
