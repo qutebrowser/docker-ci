@@ -6,7 +6,7 @@ RUN pacman -Suyy --noconfirm \
     python-tox \
     qt5-base \
     qt5-declarative \
-    qt5-webkit \
+    qt5-webengine \
     python-pyqt5 \
     xorg-xinit \
     xorg-server-xvfb
