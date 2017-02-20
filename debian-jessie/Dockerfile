@@ -18,7 +18,9 @@ RUN apt-get -y update && \
             python3-setuptools \
             wget \
             locales \
-            libjs-pdf
+            libjs-pdf \
+            libqt5sql5-sqlite
+
 RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && locale-gen
 
 RUN useradd user && mkdir /home/user && chown -R user:users /home/user

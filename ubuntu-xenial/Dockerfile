@@ -18,7 +18,8 @@ RUN apt-get -y update && \
             wget \
             language-pack-en \
             libjs-pdf \
-            dbus
+            dbus \
+            libqt5sql5-sqlite
 
 RUN dbus-uuidgen --ensure
 
