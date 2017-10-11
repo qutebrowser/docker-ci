@@ -9,7 +9,8 @@ RUN pacman -Suyy --noconfirm \
     qt5-webengine \
     python-pyqt5 \
     xorg-xinit \
-    xorg-server-xvfb
+    xorg-server-xvfb \
+    base-devel
 
 USER user
 WORKDIR /home/user
