@@ -10,7 +10,8 @@ RUN pacman -Suyy --noconfirm \
     python-pyqt5 \
     xorg-xinit \
     xorg-server-xvfb \
-    base-devel
+    gcc \
+    libyaml
 
 USER user
 WORKDIR /home/user
