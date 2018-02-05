@@ -10,6 +10,7 @@ RUN pacman -Suyy --noconfirm \
     python-pyqt5 \
     xorg-xinit \
     xorg-server-xvfb \
+    ttf-bitstream-vera \
     gcc \
     libyaml
 
