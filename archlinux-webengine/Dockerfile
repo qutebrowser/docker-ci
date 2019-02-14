@@ -8,6 +8,7 @@ RUN pacman -Suyy --noconfirm \
     qt5-declarative \
     qt5-webengine \
     python-pyqt5 \
+    python-pyqtwebengine \
     xorg-xinit \
     xorg-server-xvfb \
     ttf-bitstream-vera \
