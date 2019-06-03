@@ -13,7 +13,8 @@ RUN pacman -Suyy --noconfirm \
     xorg-server-xvfb \
     ttf-bitstream-vera \
     gcc \
-    libyaml
+    libyaml \
+    xorg-xdpyinfo
 
 USER user
 WORKDIR /home/user
