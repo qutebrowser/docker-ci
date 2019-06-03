@@ -11,8 +11,8 @@ env:
 
 script:
   - travis_retry docker build -t "qutebrowser/travis:$IMAGE" "$IMAGE"
-  - '[[ $TRAVIS_PULL_REQUEST == false ]] && docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"'
-  - '[[ $TRAVIS_PULL_REQUEST == false ]] && docker push "qutebrowser/travis:$IMAGE"'
+  - 'if [[ $TRAVIS_PULL_REQUEST == false ]]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"; fi'
+  - 'if [[ $TRAVIS_PULL_REQUEST == false ]]; then docker push "qutebrowser/travis:$IMAGE"; fi'
 
 notifications:
   irc:
