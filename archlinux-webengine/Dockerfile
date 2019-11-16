@@ -21,4 +21,4 @@ WORKDIR /home/user
 
 CMD git clone /outside qutebrowser.git && \
     cd qutebrowser.git && \
-    tox -e py37
+    tox -e py38
