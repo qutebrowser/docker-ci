@@ -6,6 +6,7 @@ env:
   matrix:
     - IMAGE=archlinux
     - IMAGE=archlinux-webengine
+    - IMAGE=archlinux-webengine-unstable
     - IMAGE=debian-jessie
     - IMAGE=ubuntu-xenial
 
