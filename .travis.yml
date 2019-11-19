@@ -1,6 +1,6 @@
 sudo: required
 services: docker
-language: generic
+language: python
 
 env:
   matrix:
@@ -8,8 +8,12 @@ env:
     - IMAGE=archlinux-webengine
     - IMAGE=archlinux-webengine-unstable
 
+install:
+  - pip install jinja2
+
 script:
-  - travis_retry docker build -t "qutebrowser/travis:$IMAGE" "$IMAGE"
+  - python3 generate.py "$IMAGE"
+  - travis_retry docker build -t "qutebrowser/travis:$IMAGE" "."
   - 'if [[ $TRAVIS_PULL_REQUEST == false ]]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"; fi'
   - 'if [[ $TRAVIS_PULL_REQUEST == false ]]; then docker push "qutebrowser/travis:$IMAGE"; fi'
 
