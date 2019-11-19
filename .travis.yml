@@ -4,7 +4,7 @@ language: generic
 
 env:
   matrix:
-    - IMAGE=archlinux
+    - IMAGE=archlinux-webkit
     - IMAGE=archlinux-webengine
     - IMAGE=archlinux-webengine-unstable
 
