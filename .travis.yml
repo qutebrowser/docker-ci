@@ -7,8 +7,6 @@ env:
     - IMAGE=archlinux
     - IMAGE=archlinux-webengine
     - IMAGE=archlinux-webengine-unstable
-    - IMAGE=debian-jessie
-    - IMAGE=ubuntu-xenial
 
 script:
   - travis_retry docker build -t "qutebrowser/travis:$IMAGE" "$IMAGE"
