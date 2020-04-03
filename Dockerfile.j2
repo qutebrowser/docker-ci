@@ -7,6 +7,7 @@ RUN sed -i '/^# after the header/a[kde-unstable]\nInclude = /etc/pacman.d/mirror
 RUN pacman -Suyy --noconfirm \
     git \
     python-tox \
+    python-distlib \
     qt5-base \
     qt5-declarative \
     {% if webengine %}qt5-webengine python-pyqtwebengine{% else %}qt5-webkit{% endif %} \
