@@ -1,0 +1,31 @@
+name: main
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "23 5 * * *"  # daily at 5:23
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image:
+          - archlinux-webkit
+          - archlinux-webengine
+          - archlinux-webengine-unstable
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - run: pip install jinja2
+      - name: Generate Dockerfile
+        run: python3 generate.py ${{ matrix.image }}
+      - uses: docker/build-push-action@v1
+        with:
+          username: qutebrowser
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: qutebrowser/ci
+          tags: ${{ matrix.image }}
+          push: ${{ github.ref == 'refs/heads/master' }}
