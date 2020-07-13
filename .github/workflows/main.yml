@@ -29,3 +29,26 @@ jobs:
           repository: qutebrowser/ci
           tags: ${{ matrix.image }}
           push: ${{ github.ref == 'refs/heads/master' }}
+
+  irc:
+    runs-on: ubuntu-latest
+    needs: [main]
+    if: "always() && github.repository_owner == 'qutebrowser'"
+    steps:
+    - name: Send success IRC notification
+      uses: Gottox/irc-message-action@v1
+      if: "needs.main.result == 'success'"
+      with:
+        server: chat.freenode.net
+        channel: '#qutebrowser-dev'
+        nickname: qutebrowser-bot
+        message: "[docker] \u00033Success:\u0003 ${{ github.ref }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} (@${{ github.actor }})"
+    - name: Send non-success IRC notification
+      uses: Gottox/irc-message-action@v1
+      if: "needs.main.result != 'success'"
+      with:
+        server: chat.freenode.net
+        channel: '#qutebrowser-dev'
+        nickname: qutebrowser-bot
+        message: "[docker] \u00034FAIL:\u0003 ${{ github.ref }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} (@${{ github.actor }})\n
+          docker: ${{ needs.docker.result }}"
