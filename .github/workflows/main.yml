@@ -44,7 +44,7 @@ jobs:
         nickname: qutebrowser-bot
         message: "[docker] \u00033Success:\u0003 ${{ github.ref }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} (@${{ github.actor }})"
     - name: Send non-success IRC notification
-      uses: Gottox/irc-message-action@v1
+      uses: Gottox/irc-message-action@v1.1
       if: "needs.main.result != 'success'"
       with:
         server: chat.freenode.net
