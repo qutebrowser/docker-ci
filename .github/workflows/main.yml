@@ -36,7 +36,7 @@ jobs:
     if: "always() && github.repository_owner == 'qutebrowser'"
     steps:
     - name: Send success IRC notification
-      uses: Gottox/irc-message-action@v1
+      uses: Gottox/irc-message-action@v1.1
       if: "needs.main.result == 'success'"
       with:
         server: chat.freenode.net
