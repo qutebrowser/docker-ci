@@ -1,3 +1,6 @@
+**This repository is only here for historical reasons. The Docker files were
+integrated into the main repository in late 2020.**
+
 This repository contains a Dockerfile template for containers used to test
 [qutebrowser](https://www.qutebrowser.org/) on CI.
 
